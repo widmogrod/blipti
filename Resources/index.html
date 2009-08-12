@@ -1,0 +1,275 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="css/blipti.css" media="screen" rel="stylesheet"/>
+<script type="text/javascript" src="jquery-1.3.2.js"></script>
+<script type="text/python" src="app://blipapi.py"></script>
+
+
+<script type="text/python">
+
+def get_all_statuses():
+	blipapi = BlipAPI();
+	return blipapi.get_all_statuses(10)
+	
+def get_all_bliposphere():
+	blipapi = BlipAPI();
+	return blipapi.get_all_bliposphere(10)
+
+def get_user(user):
+	blipapi = BlipAPI();
+	return blipapi.get_user(user)
+	
+def	get_avatar(user):
+	blipapi = BlipAPI();
+	return blipapi.get_avatar(user)
+
+</script>
+
+<script type="text/javascript" language="javascript"><!--
+//var db = Titanium.Database.open('database-name');
+//db.execute("select * from table");
+
+
+var BlipTi = {
+	
+	render_get_all_dashboard: function() {
+
+		data = get_all_statuses()
+		data = Titanium.JSON.parse(data)
+
+		var self = this;
+
+		$('#dashboard .blips').remove();
+		$(data).each(function(k, item) {
+			var blip = self.createBlip(item);
+			$('#dashboard .blips').append(blip);
+		});
+	},
+
+	render_get_all_statuses: function() {
+
+		data = get_all_statuses()
+		data = Titanium.JSON.parse(data)
+
+		var self = this;
+
+		$('#statuses .blips').remove();
+		$(data).each(function(k, item) {
+			var blip = self.createBlip(item);
+			$('#statuses .blips').append(blip);
+		});
+	},
+	
+	render_get_all_bliposphere: function() {
+
+		data = get_all_statuses()
+		data = Titanium.JSON.parse(data)
+
+		var self = this;
+
+		$('#bliposphere .blips').remove();
+		$(data).each(function(k, item) {
+			var blip = self.createBlip(item);
+			$('#bliposphere .blips').append(blip);
+		});
+	},
+
+	_users: {},
+
+	get_user: function (user) {
+		if (this._users[user] == undefined) {
+			this._users[user] = get_user(user);
+			this._users[user] = Titanium.JSON.parse(this._users[user])
+		}
+		return this._users[get_user];
+	},
+	
+	_avatar: {},
+
+	get_avatar: function (user) {
+		if (this._avatar[user] == undefined) {
+			this._avatar[user] = get_avatar(user);
+//			if (typeof this._avatar[user] == 'string') {
+//				try {
+//					this._avatar[user] = Titanium.JSON.parse(this._avatar[user]);
+//				} catch (Exception) {}
+//			}
+		}
+		return this._avatar[get_user];
+	},
+	
+	prepareBody: function(body) {
+		return body.replace(/(http:\/\/[^\s]+)/gi, function(link) {
+			// czy jest to link z YouTube
+			if (matched = link.match(/http:\/\/www\.youtube\.com\/watch\?v=[\wd\-]+/gi)) {
+				for (var i = matched.length - 1; i >= 0; i--){
+					var id = matched[i].replace(/http:\/\/www\.youtube\.com\/watch\?v=/,'');
+					return '<object width="320" height="265">'+
+						'<param name="movie" value="http://www.youtube.com/v/'+ id +'=pl&fs=1&color1=0x3a3a3a&color2=0x999999"></param>'+
+						'<param name="allowFullScreen" value="true"></param>'+
+						'<param name="allowscriptaccess" value="always"></param>'+
+						'<embed src="http://www.youtube.com/v/'+ id +'&hl=pl&fs=1&color1=0x3a3a3a&color2=0x999999" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="320" height="265"></embed>'+
+					'</object>';
+				};
+			} else {
+				return '<a href="'+ link +'">'+ link +'</a>';
+			}
+		});
+	},
+
+	createBlip: function(item) {
+//	'id': 1,
+//  'created_at': "2007-10-18 11:27:20",
+//  'transport': {'id': 6, 'name': 'www'},
+//  'body': 'foobar http://rdir.pl/jk2hg',
+//  'type': 'Status',
+//  'user_path': '/users/frania'
+
+		var body = this.prepareBody(item.body);
+
+		var user = item.user_path.replace('/users/','');
+		var avatar = null; //this.get_avatar(user);
+
+		var avatar_url = (typeof avatar == 'object')
+				? '/img/avatar.jpg' : '/img/avatar.jpg';
+
+		var blip = $('<li class="blip">'+
+			'<div class="wrapper">'+
+				'<div class="avatar">'+
+					'<img src="'+ avatar_url +'" alt="'+ user +'"/>'+
+				'</div>'+
+				'<div class="main">'+
+					'<div class="head">'+
+						'<h3 class="user">'+ user +'</h3>'+
+						'<span class="created_at">'+ item.created_at +'</span>'+
+					'</div>'+
+					'<div class="body">'+ body +'</div>'+
+				'</div>'+
+			'</div>'+
+			
+			'<div class="foot">'+
+				'<span class="transport">wysłano przez: '+ item.transport.name +'</span>'+
+
+				'<ul class="options">'+
+					'<li class="option">usuń</li>'+
+					'<li class="option">link</li>'+
+					'<li class="option">cytuj</li>'+
+					'<li class="option">odpowiedz</li>'+
+				'</ul>'+
+			'</div>'+
+
+		'</li>');
+		
+		return blip;
+	}
+}; 
+
+//var data = 'asd dsaas ddasasd dsaasd dasasd http://www.youtube.com/watch?v=PPnhiVe9B0A&feature=rec-HM-rn dsaasd dasasd das techwp: Ocen.pl własnością Point Group http://tech.wp.pl/kat,1009785,title,Ocenpl-wlasnoscia-Point-Group,wid,11392052,wiadomosc.html | http://blip.pl/s/14629621';
+//var matched = [];
+//		data.match('#\s+(http://www.youtube.com/.*)\s+#i', matched);
+//		alert(matched);
+
+jQuery(document).ready(function() {
+//	BlipTi.render_get_all_dashboard();
+//	BlipTi.render_get_all_statuses();
+//	BlipTi.render_get_all_bliposphere();
+});
+
+//set up menu
+var menu = Titanium.UI.createMenu();
+
+var file = menu.addSubMenu("File");
+file.addItem("Quit", function () { Titanium.App.exit(); });
+
+var blip = menu.addSubMenu("Blip");
+blip.addItem("Odśwież kokpit", function() {
+	BlipTi.render_get_all_dashboard();
+});
+blip.addItem("Odśwież statusy", function() {
+	BlipTi.render_get_all_statuses();
+});
+blip.addItem("Odśwież bliposfere", function() {
+	BlipTi.render_get_all_bliposphere();
+});
+
+
+var help = menu.addSubMenu("Help");
+help.addItem("About", function () {
+	console.log("Klikam 'About'");
+});
+
+
+Titanium.UI.setMenu(menu);
+//Titanium.UI.setBadge("1");
+
+var tray = Titanium.UI.addTray("app://img/blip26.png", function() {
+	var currentWindow = Titanium.UI.getCurrentWindow();
+	if (currentWindow.isVisible()) {
+		currentWindow.setVisible(false);
+	} else {
+		currentWindow.setVisible(true);
+		currentWindow.focus();
+	}
+});
+
+// Ikonki
+Titanium.UI.setBadge("26", 'app://img/blip26.png');
+Titanium.UI.setDockIcon('app://img/blip34.png');
+Titanium.UI.setIcon('app://img/blip34.png');
+
+
+//-->
+</script>
+</head>
+
+<body id="main">
+
+  <div class="container">
+	
+	<div id="head">
+		<h1 class="logo">BlipTi <sub>alfa</sub></h1>
+	</div>
+	<div id="form">
+		<h2 class="title">Napisz co robisz</h2>
+		<form class="box">
+				<textarea></textarea>
+				<p>lub wyślij publiczną wiadomość do:
+				<select>
+					<option>...</option>
+				</select></p>
+
+				<input type="submit" value="" name="submit"/>
+		</form>
+	</div>
+
+	<div class="wrapper box">
+		
+		<!-- Kokpit, wszystko co obserwujesz .. -->
+		<div id="dashboard" class="panel">
+			<h2 class="title">Kokpit</h2>
+	
+			<ul class="blips"></ul>
+		</div>
+		
+		<!-- wiadomości skierowane do użytkownika -->
+		<div id="statuses" class="panel">
+			<h2 class="title">Statusy</h2>
+
+			<ul class="blips"></ul>
+		</div>
+		
+		<!-- wiadomości skierowane do użytkownika -->
+		<div id="bliposphere" class="panel">
+			<h2 class="title">Bliposfera</h2>
+	
+			<ul class="blips"></ul>
+		</div>
+	</div>
+
+</div>
+  
+</body>
+</html>

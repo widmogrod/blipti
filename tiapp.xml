@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ti:app xmlns:ti='http://ti.appcelerator.org'>
+<!-- These values are edited/maintained by Titanium Developer -->
+<id>info.widmorod.titanium</id>
+<name>BlipTi</name>
+<version>1.0</version>
+<publisher>Gabriel Habryn</publisher>
+<url>widmogrod.info</url>
+<icon>/home/gabriel/Praca/Workspace/Titanium/Tweetienium-1.0/Resources/blip80.png</icon>
+<copyright>2009 by Gabriel Habryn</copyright>
+<!-- Window Definition - these values can be edited -->
+<window>
+<id>initial</id>
+<title>BlipTi</title>
+<url>app://index.html</url>
+<width>900</width>
+<max-width>3000</max-width>
+<min-width>900</min-width>
+<height>600</height>
+<max-height>3000</max-height>
+<min-height>600</min-height>
+<fullscreen>false</fullscreen>
+<resizable>true</resizable>
+<chrome scrollbars="true">true</chrome>
+<maximizable>true</maximizable>
+<minimizable>true</minimizable>
+<closeable>true</closeable>
+</window>
+</ti:app>
