@@ -1,0 +1,343 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>BlipTi - mikrobloging Blip.pl</title>
+	<link href="css/blipti.css" media="screen" rel="stylesheet"/>
+	
+<script type="text/javascript">
+//var data = 'Szefowa obejrzała wczoraj film... Oto jego fragment. http://www.youtube.com/watch?v=-Jm3Zb-HSvo&feature=related';
+////console.log(data.match(/(http:\/\/www\.youtube\.com\/watch\?v=[\wd]+)/gi));
+////console.log(data.match(/(http:\/\/[^\s]+)/gi));
+//window.document.write(data.replace(/(http:\/\/[^\s]+)/gi, function(link) {
+//	console.log(link.match(/http:\/\/www\.youtube\.com\/watch\?v=[\wd\-]+/gi));
+//	// czy jest to link z YouTube
+//	if (matched = link.match(/http:\/\/www\.youtube\.com\/watch\?v=[\wd\-]+/gi)) {
+//		for (var i = matched.length - 1; i >= 0; i--){
+//			var id = matched[i].replace(/http:\/\/www\.youtube\.com\/watch\?v=/,'');
+//			return '<object width="320" height="265">'+
+//				'<param name="movie" value="http://www.youtube.com/v/'+ id +'=pl&fs=1&color1=0x3a3a3a&color2=0x999999"></param>'+
+//				'<param name="allowFullScreen" value="true"></param>'+
+//				'<param name="allowscriptaccess" value="always"></param>'+
+//				'<embed src="http://www.youtube.com/v/'+ id +'&hl=pl&fs=1&color1=0x3a3a3a&color2=0x999999" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="320" height="265"></embed>'+
+//			'</object>';
+//		};
+//	} else {
+//		return '<a href="'+ link +'">'+ link +'</a>';
+//	}
+//}));
+
+</script>
+</head>
+<body>
+
+<div class="container">
+	
+	<div id="head">
+		<h1 class="logo">BlipTi <sub>alfa</sub></h1>
+		
+		<ul class="options">
+			<li class="option simple">Prosty</li>
+			<li class="option advenced">Rozwinięty</li>
+		</ul>
+	</div>
+	<div id="form">
+		<h2 class="title">Napisz co robisz</h2>
+		<form class="box">
+				<textarea></textarea>
+				<p>lub wyślij publiczną wiadomość do:
+				<select>
+					<option>...</option>
+				</select></p>
+
+				<input type="submit" value="" name="submit"/>
+		</form>
+	</div>
+
+	<div class="wrapper box">
+		
+		<!-- Kokpit, wszystko co obserwujesz .. -->
+		<div id="dashboard" class="panel">
+			<h2 class="title">Kokpit</h2>
+	
+			<ul class="blips">
+				<li class="blip">
+					<div class="wrapper">
+						<div class="avatar">
+							<img src="img/avatar.jpg" alt=""/>
+						</div>
+		
+						<div class="main">
+		
+							<div class="head">
+								<h3 class="user">widmogrod</h3>
+								<span class="created_at">11, październik 2009</span>
+							</div>
+		
+							<div class="body">Microsoft zmieni sposób instalacji IE8 [link]</div>
+						</div>
+					</div>
+					
+					<div class="foot">
+						<span class="transport">przez Gadu-Gadu</span>
+						
+						<ul class="options">
+							<li class="option">usuń</li>
+							<li class="option">link</li>
+							<li class="option">cytuj</li>
+							<li class="option">odpowiedz</li>
+						</ul>
+	
+					</div>
+	
+				</li>
+				
+				<li class="blip">
+					<div class="avatar">
+						<img src="img/avatar.jpg" alt=""/>
+					</div>
+	
+					<div class="main">
+	
+						<div class="head">
+							<h3 class="user">widmogrod</h3>
+							<span class="created_at">11, październik 2009</span>
+						</div>
+						
+						<div class="body">Byłoby miodzio, gdybyśmy mieli wsparcie dla display: table we wszystkich przeglądarkach. Na nieszczęście jest taka jedna, która uparcie nie chce wyrosnąć z pieluch - Internet Explorer.</div>
+		
+						<div class="foot">
+							<span class="transport">przez Gadu-Gadu</span>
+							
+							<ul class="options">
+								<li class="option">usuń</li>
+								<li class="option">link</li>
+								<li class="option">cytuj</li>
+								<li class="option">odpowiedz</li>
+							</ul>
+		
+						</div>
+					</div>
+				</li>
+				
+				<li class="blip">
+					<div class="avatar">
+						<img src="img/avatar.jpg" alt=""/>
+					</div>
+	
+					<div class="main">
+	
+						<div class="head">
+							<h3 class="user">widmogrod</h3>
+							<span class="created_at">11, październik 2009</span>
+						</div>
+						
+						<div class="body">Byłoby miodzio, gdybyśmy mieli wsparcie dla display: table we wszystkich przeglądarkach. Na nieszczęście jest taka jedna, która uparcie nie chce wyrosnąć z pieluch - Internet Explorer.</div>
+		
+						<div class="foot">
+							<span class="transport">przez Gadu-Gadu</span>
+							
+							<ul class="options">
+								<li class="option">usuń</li>
+								<li class="option">link</li>
+								<li class="option">cytuj</li>
+								<li class="option">odpowiedz</li>
+							</ul>
+		
+						</div>
+					</div>
+				</li>
+				
+			</ul>
+		</div>
+		
+		<!-- wiadomości skierowane do użytkownika -->
+		<div id="statuses" class="panel">
+			<h2 class="title">Statusy</h2>
+			<ul class="blips">
+				<li class="blip">
+					<div class="avatar">
+						<img src="img/avatar.jpg" alt=""/>
+					</div>
+	
+					<div class="main">
+	
+						<div class="head">
+							<h3 class="user">widmogrod</h3>
+							<span class="created_at">11, październik 2009</span>
+						</div>
+	
+						<div class="body">Microsoft zmieni sposób instalacji IE8 [link]</div>
+	
+						<div class="foot">
+							<span class="transport">przez Gadu-Gadu</span>
+							
+							<ul class="options">
+								<li class="option">usuń</li>
+								<li class="option">link</li>
+								<li class="option">cytuj</li>
+								<li class="option">odpowiedz</li>
+							</ul>
+		
+						</div>
+					</div>
+	
+				</li>
+				
+				<li class="blip">
+					<div class="avatar">
+						<img src="img/avatar.jpg" alt=""/>
+					</div>
+	
+					<div class="main">
+	
+						<div class="head">
+							<h3 class="user">widmogrod</h3>
+							<span class="created_at">11, październik 2009</span>
+						</div>
+						
+						<div class="body">Byłoby miodzio, gdybyśmy mieli wsparcie dla display: table we wszystkich przeglądarkach. Na nieszczęście jest taka jedna, która uparcie nie chce wyrosnąć z pieluch - Internet Explorer.</div>
+		
+						<div class="foot">
+							<span class="transport">przez Gadu-Gadu</span>
+							
+							<ul class="options">
+								<li class="option">usuń</li>
+								<li class="option">link</li>
+								<li class="option">cytuj</li>
+								<li class="option">odpowiedz</li>
+							</ul>
+		
+						</div>
+					</div>
+				</li>
+				
+				<li class="blip">
+					<div class="avatar">
+						<img src="img/avatar.jpg" alt=""/>
+					</div>
+	
+					<div class="main">
+	
+						<div class="head">
+							<h3 class="user">widmogrod</h3>
+							<span class="created_at">11, październik 2009</span>
+						</div>
+						
+						<div class="body">Byłoby miodzio, gdybyśmy mieli wsparcie dla display: table we wszystkich przeglądarkach. Na nieszczęście jest taka jedna, która uparcie nie chce wyrosnąć z pieluch - Internet Explorer.</div>
+		
+						<div class="foot">
+							<span class="transport">przez Gadu-Gadu</span>
+							
+							<ul class="options">
+								<li class="option">usuń</li>
+								<li class="option">link</li>
+								<li class="option">cytuj</li>
+								<li class="option">odpowiedz</li>
+							</ul>
+		
+						</div>
+					</div>
+				</li>
+				
+			</ul>
+		</div>
+		
+		<!-- wiadomości skierowane do użytkownika -->
+		<div id="bliposphere" class="panel">
+			<h2 class="title">Bliposfera</h2>
+	
+			<ul class="blips">
+				<li class="blip">
+					<div class="avatar">
+						<img src="img/avatar.jpg" alt=""/>
+					</div>
+	
+					<div class="main">
+	
+						<div class="head">
+							<h3 class="user">widmogrod</h3>
+							<span class="created_at">11, październik 2009</span>
+						</div>
+	
+						<div class="body">Microsoft zmieni sposób instalacji IE8 [link]</div>
+	
+						<div class="foot">
+							<span class="transport">przez Gadu-Gadu</span>
+							
+							<ul class="options">
+								<li class="option">usuń</li>
+								<li class="option">link</li>
+								<li class="option">cytuj</li>
+								<li class="option">odpowiedz</li>
+							</ul>
+		
+						</div>
+					</div>
+	
+				</li>
+				
+				<li class="blip">
+					<div class="avatar">
+						<img src="img/avatar.jpg" alt=""/>
+					</div>
+	
+					<div class="main">
+	
+						<div class="head">
+							<h3 class="user">widmogrod</h3>
+							<span class="created_at">11, październik 2009</span>
+						</div>
+						
+						<div class="body">Byłoby miodzio, gdybyśmy mieli wsparcie dla display: table we wszystkich przeglądarkach. Na nieszczęście jest taka jedna, która uparcie nie chce wyrosnąć z pieluch - Internet Explorer.</div>
+		
+						<div class="foot">
+							<span class="transport">przez Gadu-Gadu</span>
+							
+							<ul class="options">
+								<li class="option">usuń</li>
+								<li class="option">link</li>
+								<li class="option">cytuj</li>
+								<li class="option">odpowiedz</li>
+							</ul>
+		
+						</div>
+					</div>
+				</li>
+				
+				<li class="blip">
+					<div class="avatar">
+						<img src="img/avatar.jpg" alt=""/>
+					</div>
+	
+					<div class="main">
+	
+						<div class="head">
+							<h3 class="user">widmogrod</h3>
+							<span class="created_at">11, październik 2009</span>
+						</div>
+						
+						<div class="body">Byłoby miodzio, gdybyśmy mieli wsparcie dla display: table we wszystkich przeglądarkach. Na nieszczęście jest taka jedna, która uparcie nie chce wyrosnąć z pieluch - Internet Explorer.</div>
+		
+						<div class="foot">
+							<span class="transport">przez Gadu-Gadu</span>
+							
+							<ul class="options">
+								<li class="option">usuń</li>
+								<li class="option">link</li>
+								<li class="option">cytuj</li>
+								<li class="option">odpowiedz</li>
+							</ul>
+		
+						</div>
+					</div>
+				</li>
+				
+			</ul>
+		</div>
+	</div>
+
+</div>
+
+</body>
+</html>

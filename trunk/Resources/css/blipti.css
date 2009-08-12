@@ -1,0 +1,180 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+
+	color: #eee;
+	text-shadow: 1px 1px 0 #000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 90%;
+	background-color: #333;
+	
+}
+
+.container {
+	overflow: hidden;
+	display:table;
+}
+
+.panel {
+	display:table-cell;
+	vertical-align: top;
+	border: 1px solid #222;
+}
+
+.box,
+.blip,
+.title,
+.panel .title {
+	margin: 0;
+	padding: 5px;
+	text-shadow: 0 1px 2px #000;
+	border: 1px solid #444;
+	border-bottom: 1px solid #222;
+}
+
+.title {
+	font-size: 1.2em;
+}
+
+.options {
+	float: right;
+	overflow: hidden;
+	margin-right: 5px;
+}
+.option {
+	float: left;
+	display: inline;
+	list-style: none;
+	margin-right: 5px;
+}
+
+.blips {
+	margin:0;
+	padding:0;
+	/*border: 1px solid #222;*/
+}
+.blip {
+	position:relative;
+	height: 90px;
+	list-style: none;	
+}
+
+.blip .wrapper {
+	display: table;
+}
+.blip .head {
+	font-size: .8em;
+	color: #6f6f6f;
+}
+.blip .body {
+	clear:both;
+	font-size: 1em;
+}
+.blip .foot {
+	position: absolute;
+	bottom: 3px;
+	width: 100%;
+
+	font-size: .8em;
+	color: #7f7f7f;
+	z-index:999;
+}
+
+.blip .avatar,
+.blip .main {
+	display: table-cell;
+	vertical-align: top;
+}
+.blip .avatar {
+	width: 55px;
+}
+.blip .main {
+	width: 100%;
+}
+
+.blip .user {
+	float:left;
+	margin:0;
+	padding: 0;
+}
+.blip .created_at {
+	float:right;
+}
+.blip .avatar {}
+.blip .avatar img {
+	width: 50px;
+	height: 50px;
+	margin: 0 5px 5px 0;
+	border: 1px solid silver;
+}
+.blip .transport {}
+
+.blip .options {}
+.blip .option {}
+
+#head {
+	display:block;
+	clear:both;
+	overflow:hidden;
+	border-bottom: 2px solid #363636;
+}
+
+#head .logo {
+	float: left;
+	font-size: 1.2em;
+	padding-left: 40px;
+	height: 23px;
+	background: transparent url("../img/blip34.png") 0 0 no-repeat;
+}
+#head .logo sub {
+	font-size: .5em;
+}
+
+#head .
+
+#form {
+	overflow:hidden;
+}
+
+#form textarea {
+	display:block;
+}
+#form p {
+	float:left;
+	margin: 0;
+}
+#form input[type=submit] {
+	width: 79px;
+	height: 53px;
+	margin-top: -20px;
+	margin-left: 20px;
+	border:0;
+	background: transparent url('../img/logo-small.png') no-repeat 0 0;
+}
+fieldset {
+	border-color:#444444 #444444 #222222;
+	border-style:solid;
+	border-width:1px;
+	font-size:.9em;
+	margin:0;
+	padding:5px;
+	text-shadow:0 1px 2px #000000;
+}
+
+textarea {
+	width: 99%;
+	height: 60px;
+	padding: 5px;
+
+	font-size: 1em;
+	font-family:inherit;
+	color: #fff;
+	text-shadow: 0 1px 2px #000;
+
+	background-color: #444;
+	border: 1px solid #222;
+
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
