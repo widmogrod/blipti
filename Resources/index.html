@@ -178,13 +178,36 @@ jQuery(document).ready(function() {
 //	BlipTi.render_get_all_bliposphere();
 });
 
+
+
+var no = Titanium.Notification.createNotification({title: 'Title1',message: 'Message'});
+no.setMessage("Sets the callback function fired when a Notification object is clicked");
+no.setTitle("Title");
+//hide ( animate )
+//    Hides a notification object
+//setCallback ( callback )
+//    Sets the callback function fired when a Notification object is clicked
+//setDelay ( delay )
+//    Sets the delay time before a Notification object is displayed
+//setIcon ( icon )
+//    Sets the icon of a Notification object
+//setMessage ( message )
+//    Sets the message of a Notification object
+//setTitle ( title )
+//    Sets the title of a Notification object
+//show ( animate, autohide )
+//    Displays the Notification object 
+
+//Titanium.Notification.showNotification(no);
+
 //set up menu
 var menu = Titanium.UI.createMenu();
+var file = Titanium.UI.createMenuItem("File");
+file.addItem("Quit");
+menu.appendItem(file);
 
-var file = menu.addSubMenu("File");
-file.addItem("Quit", function () { Titanium.App.exit(); });
 
-var blip = menu.addSubMenu("Blip");
+var blip = Titanium.UI.createMenuItem("Blip");
 blip.addItem("Odśwież kokpit", function() {
 	BlipTi.render_get_all_dashboard();
 });
@@ -194,31 +217,35 @@ blip.addItem("Odśwież statusy", function() {
 blip.addItem("Odśwież bliposfere", function() {
 	BlipTi.render_get_all_bliposphere();
 });
-
-
-var help = menu.addSubMenu("Help");
-help.addItem("About", function () {
-	console.log("Klikam 'About'");
-});
-
-
+menu.appendItem(blip);
+//
+//
+//var help = Titanium.UI.createMenuItem("Help");
+//help.addItem("About", function () {
+//	console.log("Klikam 'About'");
+//});
+//
+//
 Titanium.UI.setMenu(menu);
 //Titanium.UI.setBadge("1");
+//
+//var tray = Titanium.UI.addTray("app://img/blip26.png", function() {
+//	var currentWindow = Titanium.UI.getCurrentWindow();
+//	if (currentWindow.isVisible()) {
+//		currentWindow.setVisible(false);
+//	} else {
+//		currentWindow.setVisible(true);
+//		currentWindow.focus();
+//	}
+//});
+//
+//// Ikonki
+//Titanium.UI.setBadge("26", 'app://img/blip26.png');
+//Titanium.UI.setDockIcon('app://img/blip34.png');
+//Titanium.UI.setIcon('app://img/blip34.png');
 
-var tray = Titanium.UI.addTray("app://img/blip26.png", function() {
-	var currentWindow = Titanium.UI.getCurrentWindow();
-	if (currentWindow.isVisible()) {
-		currentWindow.setVisible(false);
-	} else {
-		currentWindow.setVisible(true);
-		currentWindow.focus();
-	}
-});
-
-// Ikonki
-Titanium.UI.setBadge("26", 'app://img/blip26.png');
-Titanium.UI.setDockIcon('app://img/blip34.png');
-Titanium.UI.setIcon('app://img/blip34.png');
+//options = {}
+//Titanium.UI.showDialog(options);
 
 
 //-->
